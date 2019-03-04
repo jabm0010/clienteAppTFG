@@ -1,0 +1,65 @@
+<div>
+  <div class="row">
+    <div class="col-md-4 col-sm-2"></div>
+
+    <div class="col-md-4 container registro-container rounded">
+      <form name="registroForm" ng-submit="registrarUsuario()">
+        <div class="form-group registro-form">
+          <label><h3>Crea tu cuenta</h3></label><br></br>
+          <div class="col">
+          <div class = "form-row">
+              <div class="col">
+          <label>Nombre</label>
+          <input
+            class="form-control rounded"
+            type="text"
+            ng-model="usuario.nombre"
+          />
+          </div>
+          <div class="col">
+          <label>Apellidos </label>
+          <input
+            class="form-control rounded"
+            type="text"
+            ng-model="usuario.apellidos"
+          />
+        </div>
+        </div>
+      </div>
+      <br />
+        <div class="col">
+        <label>E-mail </label>
+          <input
+            class="form-control rounded"
+            type="email"
+            ng-model="usuario.correoElectronico"
+          /></div>  <br />
+          <div class="col-6">
+          <label>Contraseña </label>
+          <input
+            class="form-control rounded"
+            type="password"
+            ng-model="usuario.clave"
+          /></div>
+          <br />
+          <div class="col">
+          <label>Rol </label></br>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="MEDICO" ng-model="usuario.rol">
+              <label class="form-check-label" for="inlineRadio1">Médico</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="PACIENTE" ng-model="usuario.rol">
+              <label class="form-check-label" for="inlineRadio2">Paciente</label>
+            </div>
+          </div></br>
+          <div class = "form-row">
+              <div class="col-3"></div>
+          <input class="btnSubmit" type="submit" value="Registrarme" />
+        </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4 col-sm-2"></div>
+  </div>
+</div>
