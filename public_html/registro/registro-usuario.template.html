@@ -3,7 +3,7 @@
     <div class="col-md-4 col-sm-2"></div>
 
     <div class="col-md-4 container registro-container rounded">
-      <form name="registroForm" ng-submit="registrarUsuario()">
+      <form  name="registroForm" ng-submit="registrarUsuario()">
         <div class="form-group registro-form">
           <label><h3>Crea tu cuenta</h3></label><br></br>
           <div class="col">
@@ -11,18 +11,29 @@
               <div class="col">
           <label>Nombre</label>
           <input
+            name = "nombre"
             class="form-control rounded"
             type="text"
             ng-model="usuario.nombre"
+            required
           />
+          <small class="mensajeError" data-ng-show=' registroForm.nombre.$dirty && !registroForm.nombre.$valid '>
+              Indique su nombre
+          </small>
           </div>
           <div class="col">
           <label>Apellidos </label>
           <input
+            name = "apellidos"
             class="form-control rounded"
             type="text"
             ng-model="usuario.apellidos"
+            required
           />
+                
+          <small class="mensajeError" data-ng-show=' registroForm.apellidos.$dirty && !registroForm.apellidos.$valid '>
+              Indique sus apellidos
+          </small>
         </div>
         </div>
       </div>
@@ -30,32 +41,78 @@
         <div class="col">
         <label>E-mail </label>
           <input
+            name = "email"
             class="form-control rounded"
             type="email"
             ng-model="usuario.correoElectronico"
-          /></div>  <br />
-          <div class="col-6">
-          <label>Contraseña </label>
-          <input
-            class="form-control rounded"
-            type="password"
-            ng-model="usuario.clave"
-          /></div>
-          <br />
+            required
+          />
+          <small class="mensajeError" data-ng-show=' registroForm.email.$dirty && !registroForm.email.$valid '>
+              Indique su email
+              </small><br/>
+        </div>  <br />
+
+
+        <div class = "col">
+            <div class = "form-row">
+
+                <div class="col">
+                <label>Contraseña </label>
+                <input
+                  name="contrasena"
+                  class="form-control rounded"
+                  type="password"
+                  ng-model="usuario.clave"
+                  required
+                />
+                   <small class="mensajeError" data-ng-show=' registroForm.contrasena.$dirty && !registroForm.contrasena.$valid '>
+                    Es necesario añadir una contraseña
+                    </small></div>
+                <br />
+                
+                <div class="col">
+                    <label>Repita su contraseña </label>
+                    <input
+                      name="contrasena_verificar"
+                      class="form-control rounded"
+                      type="password"
+                      ng-model="clave_verificar"
+                      ng-pattern = "usuario.clave"
+                      required
+                    />
+                    <small class="mensajeError" data-ng-show=' registroForm.contrasena_verificar.$dirty && !registroForm.contrasena_verificar.$valid '>
+                      Repita la contraseña
+                      </small>
+                  </div>
+
+        </div>
+       </div> <br />
+
+
+
+
+
+
           <div class="col">
-          <label>Rol </label></br>
-          <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="MEDICO" ng-model="usuario.rol">
-              <label class="form-check-label" for="inlineRadio1">Médico</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="PACIENTE" ng-model="usuario.rol">
-              <label class="form-check-label" for="inlineRadio2">Paciente</label>
-            </div>
+            <label>Rol </label></br>
+             <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="MEDICO" ng-model="usuario.rol" ng-required="!usuario.rol">
+                 <label class="form-check-label" for="inlineRadio1">Médico</label>
+                 </div>
+                 <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="PACIENTE" ng-model="usuario.rol" ng-required="!usuario.rol">
+                <label class="form-check-label" for="inlineRadio2">Paciente</label>
+              </div>
+           
+
           </div></br>
+
+
+
+
           <div class = "form-row">
               <div class="col-3"></div>
-          <input class="btnSubmit" type="submit" value="Registrarme" />
+          <input ng-disabled="registroForm.$invalid" ng-class="{'disableButton': registroForm.$invalid}" class="btnSubmit" type="submit" value="Registrarme" />
         </div>
         </div>
       </form>

@@ -9,6 +9,11 @@ body {
     border: none;
     cursor: pointer;
 }
+
+.disableButton{
+  opacity: 0.35; 
+
+}
 .registro-container {
     margin-top: 5%;
     margin-bottom: 5%;
@@ -33,4 +38,9 @@ body {
 
 .rounded {
     border-radius:0.5rem!important
+}
+
+.mensajeError {
+  font-weight: 400;
+  color:red;
 }

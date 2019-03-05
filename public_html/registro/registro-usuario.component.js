@@ -3,7 +3,7 @@ angular.module("registroUsuario").component("registroUsuario", {
   templateUrl: "registro/registro-usuario.template.html",
   controller: function RegistroUsuarioController($http, $scope) {
     $scope.usuario = {};
-  
+    $scope.contrasenaverificar = {};
     $scope.registrarUsuario = function(){
         $http({
             method: 'POST',
