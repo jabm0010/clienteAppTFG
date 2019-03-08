@@ -1,11 +1,11 @@
 <div>
   <div class="row">
-    <div class="col-md-4 col-sm-2"></div>
+    <div class="col-md-1 col-sm-2"></div>
 
-    <div class="col-md-4 container registro-container rounded">
+    <div class="col-md-5 container registro-container rounded">
       <form  name="registroForm" ng-submit="registrarUsuario()">
         <div class="form-group registro-form">
-          <label><h3>Crea tu cuenta</h3></label><br></br>
+          
           <div class="col">
           <div class = "form-row">
               <div class="col">
@@ -34,10 +34,11 @@
           <small class="mensajeError" data-ng-show=' registroForm.apellidos.$dirty && !registroForm.apellidos.$valid '>
               Indique sus apellidos
           </small>
+        
         </div>
         </div>
-      </div>
-      <br />
+      </div> 
+    
         <div class="col">
         <label>E-mail </label>
           <input
@@ -50,7 +51,7 @@
           <small class="mensajeError" data-ng-show=' registroForm.email.$dirty && !registroForm.email.$valid '>
               Indique su email
               </small><br/>
-        </div>  <br />
+        </div>  
 
 
         <div class = "col">
@@ -68,7 +69,7 @@
                    <small class="mensajeError" data-ng-show=' registroForm.contrasena.$dirty && !registroForm.contrasena.$valid '>
                     Es necesario añadir una contraseña
                     </small></div>
-                <br />
+               
                 
                 <div class="col">
                     <label>Repita su contraseña </label>
@@ -86,8 +87,7 @@
                   </div>
 
         </div>
-       </div> <br />
-
+       </div>
 
 
 
@@ -95,19 +95,17 @@
 
           <div class="col">
             <label>Rol </label></br>
-             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="MEDICO" ng-model="usuario.rol" ng-required="!usuario.rol">
-                 <label class="form-check-label" for="inlineRadio1">Médico</label>
-                 </div>
-                 <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="PACIENTE" ng-model="usuario.rol" ng-required="!usuario.rol">
-                <label class="form-check-label" for="inlineRadio2">Paciente</label>
+            <div class="d-block my-3">
+                <div class="custom-control custom-radio">
+                  <input id="medico" name="radioMedico" type="radio" class="custom-control-input"  value="MEDICO" ng-model="usuario.rol" ng-required="!usuario.rol">
+                  <label class="custom-control-label" for="medico">Medico</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input id="paciente" name="radioPaciente" type="radio" class="custom-control-input"  value="PACIENTE" ng-model="usuario.rol" ng-required="!usuario.rol">
+                    <label class="custom-control-label" for="paciente">Paciente</label>
+                  </div>
               </div>
-           
-
-          </div></br>
-
-
+            </div>
 
 
           <div class = "form-row">
@@ -117,6 +115,6 @@
         </div>
       </form>
     </div>
-    <div class="col-md-4 col-sm-2"></div>
+    <div class="col-md-1 col-sm-2"></div>
   </div>
 </div>

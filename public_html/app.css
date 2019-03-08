@@ -1,46 +1,11 @@
-body {
-    font-family: 'Roboto';font-size: 22px;
-}
-
-.btnSubmit {
-    width: 50%;
-    border-radius: 1rem;
-    padding: 1.5%;
-    border: none;
-    cursor: pointer;
-}
-
-.disableButton{
-  opacity: 0.35; 
-
-}
-.registro-container {
-    margin-top: 5%;
-    margin-bottom: 5%;
-  
-
-}
-.registro-form {
-  padding: 5%;
+.container{
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-  border-radius:0.5rem!important
-}
-.registro-form h3 {
-  text-align: center;
-  color: #333;
+  border-radius:0.5rem!important;
+  background-color: white;
+
 }
 
-.registro-form .btnSubmit {
-  font-weight: 600;
-  color: #fff;
-  background-color: #0062cc;
-}
-
-.rounded {
-    border-radius:0.5rem!important
-}
-
-.mensajeError {
-  font-weight: 400;
-  color:red;
+.mensajeError{
+  color: red;
+  font-weight: 700;
 }
