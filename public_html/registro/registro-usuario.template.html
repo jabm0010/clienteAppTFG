@@ -1,120 +1,163 @@
-<div>
-  <div class="row">
-    <div class="col-md-1 col-sm-2"></div>
-
-    <div class="col-md-5 container registro-container rounded">
-      <form  name="registroForm" ng-submit="registrarUsuario()">
-        <div class="form-group registro-form">
-          
-          <div class="col">
-          <div class = "form-row">
-              <div class="col">
-          <label>Nombre</label>
-          <input
-            name = "nombre"
-            class="form-control rounded"
-            type="text"
-            ng-model="usuario.nombre"
-            required
-          />
-          <small class="mensajeError" data-ng-show=' registroForm.nombre.$dirty && !registroForm.nombre.$valid '>
-              Indique su nombre
-          </small>
+<body class="bg-light">
+    <div class="container">
+      <form name="registroForm" ng-submit="registrarUsuario()">
+        <div class="row mx-auto mb-3">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-4 mb-3 mt-5 ">
+            <span><h3>Crea tu cuenta</h3></span>
           </div>
-          <div class="col">
-          <label>Apellidos </label>
-          <input
-            name = "apellidos"
-            class="form-control rounded"
-            type="text"
-            ng-model="usuario.apellidos"
-            required
-          />
-                
-          <small class="mensajeError" data-ng-show=' registroForm.apellidos.$dirty && !registroForm.apellidos.$valid '>
-              Indique sus apellidos
-          </small>
-        
         </div>
-        </div>
-      </div> 
-    
-        <div class="col">
-        <label>E-mail </label>
-          <input
-            name = "email"
-            class="form-control rounded"
-            type="email"
-            ng-model="usuario.correoElectronico"
-            required
-          />
-          <small class="mensajeError" data-ng-show=' registroForm.email.$dirty && !registroForm.email.$valid '>
-              Indique su email
-              </small><br/>
-        </div>  
-
-
-        <div class = "col">
-            <div class = "form-row">
-
-                <div class="col">
-                <label>Contraseña </label>
-                <input
-                  name="contrasena"
-                  class="form-control rounded"
-                  type="password"
-                  ng-model="usuario.clave"
-                  required
-                />
-                   <small class="mensajeError" data-ng-show=' registroForm.contrasena.$dirty && !registroForm.contrasena.$valid '>
-                    Es necesario añadir una contraseña
-                    </small></div>
-               
+  
+        <div class="row mx-auto">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-4 mb-2 ">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                ng-model="usuario.nombre"
+                name = "nombre"
+                required
                 
-                <div class="col">
-                    <label>Repita su contraseña </label>
-                    <input
-                      name="contrasena_verificar"
-                      class="form-control rounded"
-                      type="password"
-                      ng-model="clave_verificar"
-                      ng-pattern = "usuario.clave"
-                      required
-                    />
-                    <small class="mensajeError" data-ng-show=' registroForm.contrasena_verificar.$dirty && !registroForm.contrasena_verificar.$valid '>
+              />
+              <small class="mensajeError" data-ng-show=' registroForm.nombre.$dirty && !registroForm.nombre.$valid '>
+                      Indique su nombre
+              </small>
+            </div>
+          </div>
+  
+          <div class="col-md-4 mb-2 ">
+            <div class="form-group">
+              <label for="apellidos" >Apellidos</label>
+              <input
+                type="text"
+                class="form-control"
+                id="apellidos"
+                ng-model="usuario.apellidos"
+                name = "apellidos"
+                required
+              />
+  
+              <small
+                class="mensajeError"
+                data-ng-show=" registroForm.apellidos.$dirty && !registroForm.apellidos.$valid "
+              >
+                Indique sus apellidos
+              </small>
+          </div>
+          </div>
+          <div class="col-md-2 mb-1 "></div>
+        </div>
+  
+        <div class="row mx-auto">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-8 mb-6 ">
+            <fieldset class="form-group">
+              <label for="email" >Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                ng-model="usuario.correoElectronico"
+                name="email"
+                required
+              />
+              <div class="mensajeError" data-ng-show=' registroForm.email.$dirty && !registroForm.email.$valid '>
+                      Indique su email
+                      </small>
+                  </div>
+         
+          </div>
+        </div>
+  
+        <div class="row mx-auto">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-4 mb-3 ">
+            <div class="form-group">
+              <label for="contrasena" >Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                id="contrasena"
+                ng-model="usuario.clave"
+                name = "contrasena"
+                required
+              />
+              <small class="mensajeError" data-ng-show=' registroForm.contrasena.$dirty && !registroForm.contrasena.$valid '>
+                      Es necesario añadir una contraseña
+                      </small>
+                  </div>
+  
+          </div>
+  
+          <div class="col-md-4 mb-3 ">
+            <div class="form-group">
+              <label for="contrasena-repetir"  >Repita la contraseña</label>
+              
+              <input
+                type="password"
+                class="form-control"
+                id="contrasena-repetir"
+                ng-model="clave_verificar"
+                ng-pattern="usuario.clave"
+                name = "contrasena_verificar"
+                required
+              />
+              <small class="mensajeError" data-ng-show=' registroForm.contrasena_verificar.$dirty && !registroForm.contrasena_verificar.$valid '>
                       Repita la contraseña
                       </small>
                   </div>
-
+          </div>
+          <div class="col-md-2 mb-1 "></div>
         </div>
-       </div>
-
-
-
-
-
-          <div class="col">
-            <label>Rol </label></br>
-            <div class="d-block my-3">
-                <div class="custom-control custom-radio">
-                  <input id="medico" name="radioMedico" type="radio" class="custom-control-input"  value="MEDICO" ng-model="usuario.rol" ng-required="!usuario.rol">
-                  <label class="custom-control-label" for="medico">Medico</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input id="paciente" name="radioPaciente" type="radio" class="custom-control-input"  value="PACIENTE" ng-model="usuario.rol" ng-required="!usuario.rol">
-                    <label class="custom-control-label" for="paciente">Paciente</label>
-                  </div>
-              </div>
+  
+        <div class="row mx-auto">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="d-block my-3 col-md-6 mb-3">
+            <label>Rol</label>
+            <div class="custom-control custom-radio">
+              <input
+                id="medico"
+                name="radioMedico"
+                type="radio"
+                class="custom-control-input"
+                value="MEDICO"
+                ng-model="usuario.rol"
+                ng-required="!usuario.rol"
+              />
+              <label class="custom-control-label" for="medico">Médico</label>
             </div>
-
-
-          <div class = "form-row">
-              <div class="col-3"></div>
-          <input ng-disabled="registroForm.$invalid" ng-class="{'disableButton': registroForm.$invalid}" class="btnSubmit" type="submit" value="Registrarme" />
+            <div class="custom-control custom-radio">
+              <input
+                id="paciente"
+                name="radioPaciente"
+                type="radio"
+                class="custom-control-input"
+                value="PACIENTE"
+                ng-model="usuario.rol"
+                ng-required="!usuario.rol"
+              />
+              <label class="custom-control-label" for="paciente">Paciente</label>
+            </div>
+          </div>
         </div>
+        <div class="row mx-auto mb-3">
+          <div class="col-md-5 mb-2 "></div>
+          <div class="col-md-4 mb-2 ">
+            <input
+              ng-disabled="registroForm.$invalid"
+              ng-class="{'disableButton': registroForm.$invalid}"
+              class="btn btn-outline-primary"
+              type="submit"
+              value="Registrarme"
+            />
+          </div>
+  
+          <div class="col-md-4 mb-2 "></div>
         </div>
       </form>
     </div>
-    <div class="col-md-1 col-sm-2"></div>
-  </div>
-</div>
+  </body>
+  

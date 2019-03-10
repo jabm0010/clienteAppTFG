@@ -1,6 +1,5 @@
 angular.module("registroUsuario").component("registroUsuario", {
-  // This name is what AngularJS uses to match to the `<phone-list>` element.
-  templateUrl: "registro/registro-usuario2.template.html",
+  templateUrl: "registro/registro-usuario.template.html",
   controller: function RegistroUsuarioController($http, $scope) {
 
 

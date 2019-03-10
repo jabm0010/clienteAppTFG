@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html ng-app="myApp">
+<html ng-app="medicoApp">
   <head>
     <title>TFG</title>
     <meta charset="UTF-8" />
@@ -14,9 +14,10 @@ and open the template in the editor.
     />
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.js"></script>
-    <script src="app.module.js"></script>
-    <script src="registro/registro-usuario.module.js"></script>
-    <script src="registro/registro-usuario.component.js"></script>
+    <script src="medico.module.js"></script>
+    <script src="ejercicios-terapeuticos/ejercicios-terapeuticos.module.js"></script>
+    <script src="ejercicios-terapeuticos/ejercicios-terapeuticos.component.js"></script>
+
 
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
@@ -40,24 +41,13 @@ and open the template in the editor.
     />
   </head>
   <body>
-    <div
-      class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow"
-    >
-      <h5 class="my-0 mr-md-auto font-weight-normal">TFG</h5>
-      <nav class="my-2 my-md-0 mr-md-3"></nav>
-      <a class="btn btn-outline-primary" href="#">Acceder a tu cuenta</a>
-    </div>
 
-    <!-- Registro usuario-->
-    <registro-usuario></registro-usuario>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
+    <ejercicios-terapeuticos></ejercicios-terapeuticos>
   
     <footer class="pt-4 my-md-5 pt-md-5 border-top"></footer>
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
