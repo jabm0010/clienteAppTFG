@@ -5,7 +5,13 @@
 
 }
 
+
 .mensajeError{
   color: red;
   font-weight: 700;
 }
+
+.wrapper {
+  display: block;
+}
+

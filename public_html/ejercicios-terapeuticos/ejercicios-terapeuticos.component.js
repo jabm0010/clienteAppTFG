@@ -2,7 +2,7 @@ angular.module("ejerciciosTerapeuticos").component("ejerciciosTerapeuticos", {
   templateUrl: "ejercicios-terapeuticos/ejercicios-terapeuticos.template.html",
   controller: function GestionarEjercicios($http, $scope) {
     $scope.ejercicio;
-    $scope.medico;
+    $scope.medico = "jabm979@gmail.com";
     $scope.crearEjercicio = function() {
       $http({
         method: "POST",
@@ -12,5 +12,8 @@ angular.module("ejerciciosTerapeuticos").component("ejerciciosTerapeuticos", {
         callback(success);
       });
     };
+
+
+    
   }
 });

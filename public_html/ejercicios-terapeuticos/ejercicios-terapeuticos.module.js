@@ -1,3 +1,5 @@
 'use strict';
 
-angular.module('ejerciciosTerapeuticos', []);
+angular.module('ejerciciosTerapeuticos', [
+    'ngRoute'
+]);

@@ -13,44 +13,12 @@ and open the template in the editor.
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
+    <!-- AngularJS 1.7.7 -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.js"></script>
-    <script src="medico.module.js"></script>
-    <script src="ejercicios-terapeuticos/ejercicios-terapeuticos.module.js"></script>
-    <script src="ejercicios-terapeuticos/ejercicios-terapeuticos.component.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular-route.js"></script>
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto"
-      rel="stylesheet"
-    />
-
-    <link type="text/css" rel="stylesheet" href="app.css" />
-
-    <!-- Material Design for Bootstrap fonts and icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
-    />
-
-    <!-- Material Design for Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
-      integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-
-    <ejercicios-terapeuticos></ejercicios-terapeuticos>
-  
-    <footer class="pt-4 my-md-5 pt-md-5 border-top"></footer>
-
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Jquery -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -61,10 +29,84 @@ and open the template in the editor.
       integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
-      integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
-      crossorigin="anonymous"
-    ></script>
+
+    <!-- Módulo y componentes-->
+    <script src="medico.module.js"></script>
+    <script src="medico.config.js"></script>
+    <script src="ejercicios-terapeuticos/ejercicios-terapeuticos.module.js"></script>
+    <script src="ejercicios-terapeuticos/ejercicios-terapeuticos.component.js"></script>
+
+
+    
+    <!--Roboto font-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos y bootstrap-->
+    <link type="text/css" rel="stylesheet" href="app.css" />
+    <script src="bootstrap/bootstrap-material-design-dist/js/bootstrap-material-design.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="bootstrap/bootstrap-material-design-dist/css/bootstrap-material-design.css"
+    />
+ 
+    <script src="bootstrap/bootstrap-material-design-dist/js/bootstrap-material-design.js.map"></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Principal <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Ejercicios
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#!ejercicios-nuevo">Crear ejercicio</a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Ver mis ejercicios</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div ng-view></div>
+
+
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top"></footer>
+
   </body>
 </html>

@@ -1,5 +1,6 @@
 'use strict';
 
 angular.module('medicoApp', [
-  'ejerciciosTerapeuticos'
+  'ejerciciosTerapeuticos',
+  'ngRoute'
 ]);

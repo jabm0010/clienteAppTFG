@@ -1,1 +1,52 @@
-<span>Hola</span>
+<body class="bg-light">
+  <div class="container mt-5">
+    <form name="crearEjercicioForm" ng-submit="crearEjercicio()">
+      <div class="row mx-auto mb-3">
+        <div class="col-md-6 mb-3 mt-5 ">
+          <div class="form-group">
+            <label for="tituloTerapia">Título</label>
+            <input
+              type="text"
+              class="form-control"
+              id="títuloTerapia"
+              ng-model="ejercicio.titulo"
+              name="tituloTerapia"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row mx-auto mb-3">
+        <div class="col-md-10 mb-3 mt-5 ">
+          <div class="form-group">
+            <label for="descripcionTerapia">Descripción de la terapia</label>
+            <textarea
+              class="form-control"
+              id="descripcionTerapia"
+              type="text"
+              ,
+              name="descripcionTerapia"
+              ,
+              ng-model="ejercicio.descripcion"
+              rows="4"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mx-auto mb-3">
+        <div class="col-md-5 mb-2 "></div>
+        <div class="col-md-4 mb-2 ">
+          <input
+            ng-disabled="crearEjercicioForm.$invalid"
+            ng-class="{'disableButton': crearEjercicioForm.$invalid}"
+            class="btn btn-outline-primary"
+            type="submit"
+            value="Crear ejercicio"
+          />
+        </div>
+        <div class="col-md-4 mb-2 "></div>
+      </div>
+    </form>
+  </div>
+</body>

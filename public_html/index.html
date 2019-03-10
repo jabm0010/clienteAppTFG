@@ -12,32 +12,44 @@ and open the template in the editor.
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <!-- AngularJS 1.7.7 -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.js"></script>
+    <!-- Jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+      integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Módulo y componentes-->
     <script src="app.module.js"></script>
     <script src="registro/registro-usuario.module.js"></script>
     <script src="registro/registro-usuario.component.js"></script>
+  
 
+    <!--Roboto font-->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
     />
 
+    <!-- Estilos y bootstrap-->
     <link type="text/css" rel="stylesheet" href="app.css" />
-
-    <!-- Material Design for Bootstrap fonts and icons -->
+    <script src="bootstrap/bootstrap-material-design-dist/js/bootstrap-material-design.js"></script>
     <link
+      type="text/css"
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+      href="bootstrap/bootstrap-material-design-dist/css/bootstrap-material-design.css"
     />
+ 
+    <script src="bootstrap/bootstrap-material-design-dist/js/bootstrap-material-design.js.map"></script>
 
-    <!-- Material Design for Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
-      integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
-      crossorigin="anonymous"
-    />
+
   </head>
   <body>
     <div
@@ -51,30 +63,8 @@ and open the template in the editor.
     <!-- Registro usuario-->
     <registro-usuario></registro-usuario>
 
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
     <footer class="pt-4 my-md-5 pt-md-5 border-top"></footer>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
-      integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
-      integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
-      crossorigin="anonymous"
-    ></script>
+
   </body>
 </html>
