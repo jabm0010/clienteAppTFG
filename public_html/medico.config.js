@@ -1,5 +1,8 @@
 'use strict'
 
+// Función para pasar datos entre controladores
+
+
 angular.
   module('medicoApp').
   config(function($routeProvider){
@@ -9,6 +12,9 @@ angular.
     }).
     when('/ejercicios', {
       template: '<ver-ejercicios-terapeuticos></ver-ejercicios-terapeuticos>'
+    }).
+    when('/ejercicios/:ejercicioId', {
+      template: '<detalles-ejercicio></detalles-ejercicio>'
     }).
     otherwise('/ejercicios');
 

@@ -1,0 +1,62 @@
+<body class="bg-light">
+  <div class="container mt-5">
+
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+                <button type="button" class="btn btn-primary" ng-click="activarModoEditar()" ng-if="modoeditar == false">Editar</button>   
+                <button type="button" class="btn btn-primary" ng-click="activarModoEditar()" ng-if="modoeditar == true">Guardar cambios</button>        
+          </li>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+
+        <div ng-if="modoeditar == false" >
+                <div class="col-md-6 mb-3 ">
+                    <h5 class="card-title">{{ejercicio.titulo}}</h5>
+                    <p class="card-text">
+                    {{ejercicio.descripcion}}
+                    </p>
+                 </div>
+      </div>
+      <div ng-if="modoeditar == true" >
+            <div class="row mx-auto">
+                <div class="col-md-6 mb-3 ">
+                    <div class="form-group">
+                      <label for="tituloTerapia">Título</label>
+                     <input
+                      type="text"
+                      class="form-control"
+                      id="títuloTerapia"
+                      ng-model="ejercicio.titulo"
+                      name="tituloTerapia"
+                      required
+                      />
+                </div>
+          </div>
+          </div>
+          <div class="row mx-auto mb-3">
+                <div class="col-md-10 mb-3  ">
+                  <div class="form-group">
+                    <label for="descripcionTerapia">Descripción del ejercicio</label>
+                    <textarea
+                      class="form-control"
+                      id="descripcionTerapia"
+                      type="text"
+                      ,
+                      name="descripcionTerapia"
+                      ,
+                      ng-model="ejercicio.descripcion"
+                      rows="4"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+
+
+
+      </div>
+ 
+  </div>
+</body>
