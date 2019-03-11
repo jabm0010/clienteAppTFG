@@ -8,9 +8,9 @@ angular.
       template: '<ejercicios-terapeuticos></ejercicios-terapeuticos>'
     }).
     when('/ejercicios', {
-      template: ''
+      template: '<ver-ejercicios-terapeuticos></ver-ejercicios-terapeuticos>'
     }).
-    otherwise('/principal');
+    otherwise('/ejercicios');
 
   })
 
