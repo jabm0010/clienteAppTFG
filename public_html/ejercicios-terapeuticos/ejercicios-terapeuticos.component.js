@@ -66,11 +66,17 @@ angular.module("ejerciciosTerapeuticos").component("detallesEjercicio",{
     };
 
     $scope.guardarCambios = function(){
+      $http({
+        method: "PUT",
+        url: "http://localhost:8080/medicos/"+$scope.medico+"/ejercicios",
+        data: $scope.ejercicio
 
-
-      
+      }).then(function(success) {
+        callback(success);
+       
+      });
     }
-
+    
   }
-})
-
+}
+)
