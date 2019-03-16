@@ -36,8 +36,6 @@ and open the template in the editor.
     <script src="ejercicios-terapeuticos/ejercicios-terapeuticos.module.js"></script>
     <script src="ejercicios-terapeuticos/ejercicios-terapeuticos.component.js"></script>
 
-
-    
     <!--Roboto font-->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
@@ -52,10 +50,8 @@ and open the template in the editor.
       rel="stylesheet"
       href="bootstrap/bootstrap-material-design-dist/css/bootstrap-material-design.css"
     />
- 
+
     <script src="bootstrap/bootstrap-material-design-dist/js/bootstrap-material-design.js.map"></script>
-
-
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -92,10 +88,14 @@ and open the template in the editor.
               Ejercicios
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#!ejercicios-nuevo">Crear ejercicio</a>
+              <a class="dropdown-item" href="#!ejercicios-nuevo"
+                >Crear ejercicio</a
+              >
 
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#!ejercicios">Ver mis ejercicios</a>
+              <a class="dropdown-item" href="#!ejercicios"
+                >Ver mis ejercicios</a
+              >
             </div>
           </li>
         </ul>
@@ -104,9 +104,8 @@ and open the template in the editor.
 
     <div ng-view></div>
 
-
-
     <footer class="pt-4 my-md-5 pt-md-5 border-top"></footer>
+
 
   </body>
 </html>

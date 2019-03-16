@@ -1,6 +1,7 @@
 angular.module("ejerciciosTerapeuticos").component("ejerciciosTerapeuticos", {
   templateUrl: "ejercicios-terapeuticos/ejercicios-terapeuticos.template.html",
   controller: function GestionarEjercicios($http, $scope) {
+    $scope.respuestaPeticion;
     $scope.ejercicio;
     $scope.medico = "jabm979@gmail.com";
     $scope.crearEjercicio = function() {
@@ -8,9 +9,14 @@ angular.module("ejerciciosTerapeuticos").component("ejerciciosTerapeuticos", {
         method: "POST",
         url: "http://localhost:8080/medicos/"+$scope.medico+"/ejercicios",
         data: $scope.ejercicio
-      }).then(function(success) {
-        callback(success);
-      });
+      }).then(function successCallback(response) {
+        $scope.respuestaPeticion = true;
+      }, function errorCallback(response){
+        $scope.respuestaPeticion = false;
+      }
+      
+      
+      );
     };
 
 
@@ -21,14 +27,27 @@ angular.module("ejerciciosTerapeuticos").component("ejerciciosTerapeuticos", {
 angular.module("ejerciciosTerapeuticos").component("verEjerciciosTerapeuticos",{
   templateUrl:"ejercicios-terapeuticos/ver-ejercicios-terapeuticos.template.html",
   controller: function VerEjercicios($http, $scope,$window, $location){
-    $scope.numeropaginas = [];
-    $scope.pagina;
+
+    $scope.ejercicios;
     $scope.medico = "jabm979@gmail.com";""
 
     $scope.goToLink = function(e) {
       $window.localStorage.setItem("ejercicioSeleccionado",JSON.stringify(e)) 
       $location.path("/ejercicios/"+e.id);
     };
+
+    $scope.sort_by = function(field, reverse, primer){
+
+      var key = primer ? 
+          function(x) {return primer(x[field])} : 
+          function(x) {return x[field]};
+   
+      reverse = !reverse ? 1 : -1;
+   
+      return function (a, b) {
+          return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
+        } 
+   }
 
 
     $scope.verEjercicios = function(){
@@ -37,12 +56,9 @@ angular.module("ejerciciosTerapeuticos").component("verEjerciciosTerapeuticos",{
         url: "http://localhost:8080/medicos/"+$scope.medico+"/ejercicios",
 
       }).then(function(success) {
-        $scope.pagina = success.data;
-        for(i = 0;i<$scope.pagina.pag_totales;i++){
-          $scope.numeropaginas.push("pagina");
-        }
-       
-       
+        $scope.ejercicios = success.data;
+        $scope.ejercicios.sort($scope.sort_by('titulo', true, null));
+        
       });
     }
     
@@ -56,6 +72,7 @@ angular.module("ejerciciosTerapeuticos").component("detallesEjercicio",{
   controller: function ModificarEjercicio($routeParams,$http,$window, $scope){
     $scope.ejercicio = JSON.parse($window.localStorage.getItem("ejercicioSeleccionado"));
     $scope.modoeditar = false;
+    $scope.respuestaPeticion;
     
     $scope.id = $routeParams.ejercicioId;
     $scope.medico = "jabm979@gmail.com";
@@ -71,10 +88,14 @@ angular.module("ejerciciosTerapeuticos").component("detallesEjercicio",{
         url: "http://localhost:8080/medicos/"+$scope.medico+"/ejercicios",
         data: $scope.ejercicio
 
-      }).then(function(success) {
-        callback(success);
-       
-      });
+      }).then(function successCallback(response) {
+        $scope.respuestaPeticion = true;
+      }, function errorCallback(response){
+        $scope.respuestaPeticion = false;
+      }
+      
+      
+      );
     }
     
   }

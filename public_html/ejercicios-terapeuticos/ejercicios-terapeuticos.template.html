@@ -1,8 +1,15 @@
 <body class="bg-light">
   <div class="container mt-5">
     <form name="crearEjercicioForm" ng-submit="crearEjercicio()">
+        <div class="row mx-auto mb-3">
+            <div class="col-md-4 mb-2 mt-3 "></div>
+            <div class="col-md-4 mb-2 mt-3">
+             
+            </div>
+            <div class="col-md-3 mb-2 mt-3 "></div>
+        </div>
       <div class="row mx-auto mb-3">
-        <div class="col-md-6 mb-3 mt-5 ">
+        <div class="col-md-6 mb-3 mt-1 ">
           <div class="form-group">
             <label for="tituloTerapia">Título</label>
             <input
@@ -17,7 +24,7 @@
         </div>
       </div>
       <div class="row mx-auto mb-3">
-        <div class="col-md-10 mb-3 mt-5 ">
+        <div class="col-md-10 mb-3 mt-1 ">
           <div class="form-group">
             <label for="descripcionTerapia">Descripción del ejercicio</label>
             <textarea
@@ -44,9 +51,25 @@
             type="submit"
             value="Crear ejercicio"
           />
+
         </div>
         <div class="col-md-4 mb-2 "></div>
       </div>
+
     </form>
+
+    <div class="row mx-auto mb-3">
+        <div class="col-md-4 mb-2 mt-3 "></div>
+        <div class="col-md-4 mb-2 mt-3">
+          <div class="alert alert-success" ng-show="respuestaPeticion == true"  role="alert">
+          Ejercicio creado correctamente
+           
+          </div>
+          <div class="alert alert-warning" ng-show="respuestaPeticion == false" role="alert">
+            Ha habido un error
+           </div>
+        </div>
+        <div class="col-md-3 mb-2 mt-3 "></div>
+    </div>
   </div>
 </body>
