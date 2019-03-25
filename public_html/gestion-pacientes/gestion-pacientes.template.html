@@ -1,0 +1,75 @@
+<body class="bg-light">
+  <div ng-init="obtenerPacientes()"></div>
+  <div class="row mx-auto mb-1">
+    <div class="col-md-6 mb-1 mt-3">
+      <div class="container mt-1">
+        <div class="row mx-auto mb-1">
+          <div class="col-md-6 mb-1 mt-3">
+            <input
+              class="form-control mr-sm-2"
+              type="text"
+              placeholder="Buscar"
+              aria-label="Buscar"
+              ng-model="$ctrl.query"
+            />
+          </div>
+          <div class="col-md-6 mb-1 mt-3">
+                <button type="button" class="btn btn-circle btn-raised btn-success"><span class="glyphicon glyphicon-ok"></span></button>
+          </div>
+        </div>
+        <div class="row mx-auto ">
+          <div
+            class="table-wrapper-scroll-y my-custom-scrollbar mb-4 ml-4 mt-3"
+            id="style-1"
+          >
+            <div class="table-responsive  ">
+              <table class="table mt-1 ">
+                <tbody>
+                  <tr ng-repeat="p in listadoPacientes | filter:$ctrl.query">
+                    <td>
+                      <img
+                        ng-if="p.imagen != null"
+                        src="{{ p.imagen }}"
+                        width="30px"
+                        height="30px"
+                        style="border-radius: 50%;"
+                      />
+                      <img
+                        ng-if="p.imagen == null"
+                        src="https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
+                        width="30px"
+                        height="30px"
+                        style="border-radius: 50%;"
+                      />
+                    </td>   
+                    <td>
+                      <span>{{ p.nombre }} {{ p.apellidos }}</span>
+                    </td>
+
+                    <td></td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-raised btn-primary"
+                      >
+                        Asignar terapia
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-raised btn-secondary"
+                      >
+                        Ver historial médico
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

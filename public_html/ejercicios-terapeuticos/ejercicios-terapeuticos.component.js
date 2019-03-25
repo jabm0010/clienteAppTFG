@@ -3,7 +3,7 @@ angular.module("ejerciciosTerapeuticos").component("ejerciciosTerapeuticos", {
   controller: function GestionarEjercicios($http, $scope) {
     $scope.respuestaPeticion;
     $scope.ejercicio;
-    $scope.medico = "jabm979@gmail.com";
+    $scope.medico = "usuario1@gmail.com";
     $scope.crearEjercicio = function() {
       $http({
         method: "POST",
@@ -29,7 +29,8 @@ angular.module("ejerciciosTerapeuticos").component("verEjerciciosTerapeuticos",{
   controller: function VerEjercicios($http, $scope,$window, $location){
 
     $scope.ejercicios;
-    $scope.medico = "jabm979@gmail.com";""
+    $scope.medico = "usuario1@gmail.com";
+
 
     $scope.goToLink = function(e) {
       $window.localStorage.setItem("ejercicioSeleccionado",JSON.stringify(e)) 
@@ -49,6 +50,13 @@ angular.module("ejerciciosTerapeuticos").component("verEjerciciosTerapeuticos",{
         } 
    }
 
+   $scope.ordenarPorTitulo = function(){
+    $scope.ejercicios.sort($scope.sort_by('titulo', false, null));
+   }
+
+   $scope.ordenarPorFecha = function(){
+    $scope.ejercicios.sort($scope.sort_by('fechaCreacion', true, null));
+   }
 
     $scope.verEjercicios = function(){
       $http({
@@ -57,7 +65,7 @@ angular.module("ejerciciosTerapeuticos").component("verEjerciciosTerapeuticos",{
 
       }).then(function(success) {
         $scope.ejercicios = success.data;
-        $scope.ejercicios.sort($scope.sort_by('titulo', true, null));
+        $scope.ejercicios.sort($scope.sort_by('fechaCreacion', true, null));
         
       });
     }
@@ -75,7 +83,7 @@ angular.module("ejerciciosTerapeuticos").component("detallesEjercicio",{
     $scope.respuestaPeticion;
     
     $scope.id = $routeParams.ejercicioId;
-    $scope.medico = "jabm979@gmail.com";
+    $scope.medico = "usuario1@gmail.com";
 
     $scope.activarModoEditar = function(){
       $scope.modoeditar = $scope.modoeditar === false ? $scope.modoeditar = true : $scope.modoeditar = false;

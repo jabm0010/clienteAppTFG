@@ -2,10 +2,8 @@
   <div ng-init="verEjercicios()"></div>
 
   <div class="container mt-5">
-    <div class="row mx-auto mb-3">
-      <div class="col-md-3 mb-2  mt-3 ">
-     
-      </div>
+    <div class="row mx-auto mb-1">
+      <div class="col-md-2 mb-2  mt-3 "></div>
       <div class="col-md-4 mb-2  mt-3">
         <input
           class="form-control mr-sm-2"
@@ -15,30 +13,69 @@
           ng-model="$ctrl.query"
         />
       </div>
-      <div class="col-md-3 mb-2  mt-3"></div>
+      <div class="col-md-1 mb-2  mt-3"></div>
+      
+      <div class="col-md-1 mb-2  mt-3">
+        <div class="custom-control custom-radio">
+          <input
+            id="titulo"
+            name="radioTitulo"
+            type="radio"
+            class="custom-control-input"
+            value="titulo"
+            ng-model="filtro"
+            ng-change = "ordenarPorTitulo()"
+          />
+          <label class="custom-control-label" for="titulo">Título</label>
+        </div>
+      </div>
+      <div class="col-md-2 mb-2  mt-3">
+        <div class="custom-control custom-radio ">
+          <input
+            id="fechaCreacion"
+            name="radioFecha"
+            type="radio"
+            class="custom-control-input"
+            value="fechaCreacion"
+            ng-model="filtro"
+            ng-change = "ordenarPorFecha()"
+            
+          />
+          <label class="custom-control-label  " for="fechaCreacion">Fecha creación</label>
+        </div>
+      </div>
     </div>
     <div class="table-wrapper-scroll-y my-custom-scrollbar " id="style-1">
-    <div class="table-responsive ">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-
-            <th scope="col">Título</th>
-            <th scope="col">Fecha creación</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="e in ejercicios | filter:$ctrl.query"  ng-click="goToLink(e)">
-            <td>{{ e.titulo }}</td>
-           
-            <td>{{ e.fechaCreacion }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive ">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Título</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Fecha creación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              ng-repeat="e in ejercicios | filter:$ctrl.query"
+              ng-click="goToLink(e)"
+            >
+              <td>{{ e.titulo }}</td>
+              <td>{{ e.descripcion }}</td>
+              <td>
+                {{
+                  e.fechaCreacion.substring(0, 10) +
+                    " | " +
+                    e.fechaCreacion.substring(11, 16)
+                }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  <div class="row mx-auto mb-3">
+    <div class="row mx-auto mb-3">
       <div class="col-md-12 mb-12  mt-3 "></div>
-  </div>
+    </div>
   </div>
 </body>

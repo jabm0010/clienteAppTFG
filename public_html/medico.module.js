@@ -2,6 +2,8 @@
 
 angular.module('medicoApp', [
   'ejerciciosTerapeuticos',
-  'ngRoute'
+  'ngRoute',
+  'perfilUsuario',
+  'gestionPacientes'
 ]);
 

@@ -16,6 +16,9 @@ angular.
     when('/ejercicios/:ejercicioId', {
       template: '<detalles-ejercicio></detalles-ejercicio>'
     }).
+    when('/principal', {
+      template: '<ver-pacientes></ver-pacientes>'
+    }).
     otherwise('/ejercicios');
 
   })

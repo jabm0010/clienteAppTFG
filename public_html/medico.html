@@ -35,7 +35,10 @@ and open the template in the editor.
     <script src="medico.config.js"></script>
     <script src="ejercicios-terapeuticos/ejercicios-terapeuticos.module.js"></script>
     <script src="ejercicios-terapeuticos/ejercicios-terapeuticos.component.js"></script>
-
+    <script src="perfil-usuario/perfil-usuario.module.js"></script>
+    <script src="perfil-usuario/perfil-usuario.component.js"></script>
+    <script src="gestion-pacientes/gestion-pacientes.module.js"></script>
+    <script src="gestion-pacientes/gestion-pacientes.component.js"></script>
     <!--Roboto font-->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
@@ -70,9 +73,9 @@ and open the template in the editor.
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Principal <span class="sr-only">(current)</span></a
+          <li class="nav-item" >
+            <a class="nav-link" role="button"  href="#!principal"
+              >Principal </a
             >
           </li>
           <li class="nav-item dropdown">
@@ -96,7 +99,18 @@ and open the template in the editor.
               <a class="dropdown-item" href="#!ejercicios"
                 >Ver mis ejercicios</a
               >
+             
             </div>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <perfil-usuario></perfil-usuario>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"
+              >Ver perfil <span class="sr-only">(current)</span></a
+            >
           </li>
         </ul>
       </div>
@@ -105,7 +119,5 @@ and open the template in the editor.
     <div ng-view></div>
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top"></footer>
-
-
   </body>
 </html>

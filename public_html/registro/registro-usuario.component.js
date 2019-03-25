@@ -2,7 +2,7 @@ angular.module("registroUsuario").component("registroUsuario", {
   templateUrl: "registro/registro-usuario.template.html",
   controller: function RegistroUsuarioController($http, $scope) {
 
-
+    $scope.imagenPrueba;
     $scope.usuario;
     $scope.contrasenaverificar = {};
     $scope.registrarUsuario = function() {
@@ -14,5 +14,9 @@ angular.module("registroUsuario").component("registroUsuario", {
         callback(success);
       });
     };
+
+  
   }
+  
 });
+
