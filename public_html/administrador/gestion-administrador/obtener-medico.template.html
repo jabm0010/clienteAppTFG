@@ -1,0 +1,144 @@
+<body class="bg-light">
+  <div class="container">
+    <div class="row mx-auto mb-3 mt-5">
+      <div class="col-md-2 mb-1 "></div>
+      <div class="col-md-4 mb-3 mt-3 ">
+        <span><h5>Introduce el correo electrónico</h5></span>
+      </div>
+    </div>
+    <form name="buscarMedicoForm" ng-submit="buscarUsuario()">
+      <div class="row mx-auto mb-2 ">
+        <div class="col-md-2 mb-1 "></div>
+        <div class="col-md-4 mb-1 ">
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              ng-model="identificador"
+              name="email"
+            />
+          </div>
+        </div>
+        <div class="col-md-5 mb-1 mt-4 ">
+          <input
+            class="btn btn-outline-primary raised"
+            type="submit"
+            value="Buscar"
+          />
+        </div>
+      </div>
+    </form>
+
+    <div ng-if="resultadoBusqueda==true">
+      <form name="registroForm" ng-submit="modificarUsuario()">
+        <div class="row mx-auto ">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-7 mb-4 ">
+                <fieldset class="form-group">
+                        <label for="email" >Email</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="email"
+                          ng-model="medico.correoElectronico"
+                          name="email"
+                          readonly
+                        />
+          </div>
+          <div class="col-md-3 mb-4 ">
+          </div>
+        </div>
+        <div class="row mx-auto mb-3 ">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-4 mb-4 ">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                ng-model="medico.nombre"
+                name="nombre"
+                required
+              />
+              <small
+                class="mensajeError"
+                data-ng-show=" registroForm.nombre.$dirty && !registroForm.nombre.$valid "
+              >
+                Es necesario indicar un nombre
+              </small>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 ">
+            <div class="form-group">
+              <label for="apellidos">Apellidos</label>
+              <input
+                type="text"
+                class="form-control"
+                id="apellidos"
+                ng-model="medico.apellidos"
+                name="apellidos"
+                required
+              />
+
+              <small
+                class="mensajeError"
+                data-ng-show=" registroForm.apellidos.$dirty && !registroForm.apellidos.$valid "
+              >
+                Es necesario indicar unos apellidos
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="row mx-auto ">
+                <div class="col-md-2 mb-1 "></div>
+                <div class="col-md-7 mb-4 ">
+                        <div class="d-block my-3 col-md-4  mb-2">
+                                <label>Suscripción</label>
+                                <div class="custom-control custom-radio">
+                                        <input
+                                        id="basica"
+                                        name="radioBasica"
+                                        type="radio"
+                                        class="custom-control-input"
+                                        value="BASICA"
+                                        ng-model="medico.versionCuenta"
+                                        ng-required="!medico.versionCuenta"
+                                      />
+                                      <label class="custom-control-label" for="basica">Básica</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                        <input
+                                        id="premium"
+                                        name="radioPremium"
+                                        type="radio"
+                                        class="custom-control-input"
+                                        value="PREMIUM"
+                                        ng-model="medico.versionCuenta"
+                                        ng-required="!medico.versionCuenta"
+                                      />
+                                      <label class="custom-control-label" for="premium">Premium</label>
+                                </div>
+                              </div>
+                </div>
+                <div class="col-md-3 mb-4 ">
+                </div>
+        </div>
+        <div class="row mx-auto ">
+                <div class="col-md-4 mb-1 "></div>
+                <div class="col-md-4 mb-4 ">
+                        <input
+                        ng-disabled="registroForm.$invalid"
+                        ng-class="{'disableButton': registroForm.$invalid}"
+                        class="btn btn-outline-primary"
+                        type="submit"
+                        value="Guardar cambios"
+                      /> 
+                </div>
+                <div class="col-md-4 mb-1 "></div>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="adminApp">
+  <head>
+    <title>Administrador</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- AngularJS 1.7.7 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular-route.js"></script>
+
+    <!-- Jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+      integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Módulo y componentes-->
+    <script src="administrador.module.js"></script>
+    <script src="administrador.config.js"></script>
+    <script src="gestion-administrador/gestion-administrador.module.js"></script>
+    <script src="gestion-administrador/gestion-administrador.component.js"></script>
+
+    <!--Roboto font-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos y bootstrap-->
+    <link type="text/css" rel="stylesheet" href="/public_html/app.css" />
+    <script src="/public_html/bootstrap/bootstrap-material-design-dist/js/bootstrap-material-design.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/public_html/bootstrap/bootstrap-material-design-dist/css/bootstrap-material-design.css"
+    />
+
+    <script src="/public_html/bootstrap/bootstrap-material-design-dist/js/bootstrap-material-design.js.map"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <a class="navbar-brand" href="#">Admin</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" role="button" href="#!crear-medico"
+              >Registrar nuevo médico
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" role="button" href="#!obtener-medico"
+              >Modificar médico
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div ng-view></div>
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top"></footer>
+  </body>
+</html>
