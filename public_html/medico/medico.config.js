@@ -19,6 +19,12 @@ angular.
     when('/principal', {
       template: '<ver-pacientes></ver-pacientes>'
     }).
+    when('/nuevo-paciente', {
+      template: '<nuevo-paciente></nuevo-paciente>'
+    }).
+    when('/asignar-terapia', {
+      template: '<asignar-terapia></asignar-terapia>'
+    }).
     otherwise('/ejercicios');
 
   })

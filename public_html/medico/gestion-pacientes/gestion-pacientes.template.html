@@ -4,17 +4,27 @@
     <div class="col-md-6 mb-1 mt-3">
       <div class="container mt-1">
         <div class="row mx-auto mb-1">
-          <div class="col-md-6 mb-1 mt-3">
-            <input
-              class="form-control mr-sm-2"
-              type="text"
-              placeholder="Buscar"
-              aria-label="Buscar"
-              ng-model="$ctrl.query"
-            />
+          <div class="col-md-6 mb-1 mt-5 ">
+            <div>
+              <input
+                class="form-control mr-sm-2"
+                type="text"
+                placeholder="Buscar"
+                aria-label="Buscar"
+                ng-model="$ctrl.query"
+              />
+            </div>
           </div>
-          <div class="col-md-6 mb-1 mt-3">
-                <button type="button" class="btn btn-circle btn-raised btn-success"><span class="glyphicon glyphicon-ok"></span></button>
+          <div class="col-md-1 mb-2 mt-5"></div>
+          <div class="col-md-4 mb-2 mt-5">
+            <a
+              href="#!nuevo-paciente"
+              class="btn btn-circle btn-raised btn-primary"
+              >Nuevo paciente
+              <i
+                class="material-icons-new outline-add_circle icon-white  ml-2 "
+              ></i
+            ></a>
           </div>
         </div>
         <div class="row mx-auto ">
@@ -41,7 +51,7 @@
                         height="30px"
                         style="border-radius: 50%;"
                       />
-                    </td>   
+                    </td>
                     <td>
                       <span>{{ p.nombre }} {{ p.apellidos }}</span>
                     </td>
@@ -49,8 +59,8 @@
                     <td></td>
                     <td>
                       <button
-                        type="button"
-                        class="btn btn-sm btn-raised btn-primary"
+                        ng-click="goToLink(p)"
+                        class="btn btn-raised btn-primary"
                       >
                         Asignar terapia
                       </button>

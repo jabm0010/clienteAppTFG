@@ -1,0 +1,144 @@
+<div class="div-terapia mt-5  ">
+  <div class="container-fluid">
+      <form name="crearTeraiaForm" ng-submit="crearTerapia()">
+    <div class="row mx-auto mb-1 mt-3">
+      <div class="col-md-3 lg-3 mt-5 mb-5">
+        <span
+          ><h4>
+            <a href="#!principal" class="btn btn-circle btn-primary">
+              <i class="material-icons-new  outline-arrow_back  "></i
+            ></a>
+            Ejercicios de la terapia
+          </h4></span
+        >
+        {{ duracionEjercicio }}
+        <ul class="list-group">
+          <div ng-repeat="e in ejerciciosTerapia">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <div class="col-md-2 mb-2">
+                <h4>
+                  <span class="badge badge-pill badge-light">{{
+                    e.titulo
+                  }}</span>
+                </h4>
+              </div>
+              <div class="col-md-5 mb-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="duracionEjercicio"
+                  ng-model="duracionEjercicio[e.id]"
+                  placeholder="Duración"
+                  name="tituloTerapia"
+                  required
+                />
+              </div>
+              <button
+                type="button"
+                ng-click="eliminarEjercicio(e)"
+                class="btn btn-circle btn-primary"
+              >
+                <i class="material-icons-new  outline-clear"></i>
+              </button>
+            </li>
+          </div>
+        </ul>
+      </div>
+
+      <div class="col-md-5 lg-5  mt-5 mb-5">
+        <div>
+          <h3>Mis ejercicios</h3>
+          <div class="row mx-auto mb-1 mt-3">
+            <div class="col-md-1 mb-1"></div>
+            <div class="col-md-10 mb-2">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="material-icons-new  outline-search  "></i>
+                </span>
+                <input
+                  class="form-control  mr-sm-2"
+                  type="text"
+                  placeholder="Buscar"
+                  aria-label="Buscar"
+                  ng-model="$ctrl.query"
+                />
+              </div>
+            </div>
+          </div>
+          <div ng-init="verEjercicios() "></div>
+
+          <div
+            class="table-wrapper-scroll-y my-custom-scrollbar-asignar-terapia "
+            id="style-1"
+          >
+            <div class="table-responsive ">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Título</th>
+                    <th scope="col">Descripción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    ng-repeat="e in ejercicios | filter:$ctrl.query"
+                    ng-click="anadirEjercicio(e)"
+                  >
+                    <td>{{ e.titulo }}</td>
+                    <td>{{ e.descripcion }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 lg-1 mt-5 mb-5"></div>
+      <div class="col-md-3 lg-3 mt-5 mb-5">
+        <div>
+          <div>
+            <h3>Fechas</h3>
+            <div id="calendar"></div>
+            {{ fechas }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mx-auto mb-1 ">
+      <div class="col-md-1 lg-4 mt-2 mb-5"></div>
+      <div class="col-md-8 lg-2 mt-2 mb-5">
+        <label for="descripcionTerapia">
+            <i class="material-icons-new  outline-assignment  "></i>
+          Información adicional</label>
+        <textarea
+          class="form-control"
+          id="descripcionTerapia"
+          type="text"
+          ,
+          name="descripcionTerapia"
+          ,
+          ng-model="terapia.comentarios"
+          rows="7"
+          required
+        ></textarea>
+        {{ terapia.comentarios }}
+      </div>
+      <div class="col-md-3 lg-4 mt-2 mb-5"></div>
+    </div>
+    <div class="row mx-auto mb-1 mt-3">
+      <div class="col-md-5 lg-4 mt-5 mb-5"></div>
+      <div class="col-md-2 lg-2 mt-5 mb-5">
+        <input
+          ng-disabled="crearTerapiaForm.$invalid"
+          ng-class="{'disableButton': crearTerapiaForm.$invalid}"
+          class="btn btn-primary btn-outline"
+          type="submit"
+          value="Asignar terapia"
+        />
+      </div>
+      <div class="col-md-5 lg-4 mt-5 mb-5"></div>
+    </div>
+  </div>
+</div>

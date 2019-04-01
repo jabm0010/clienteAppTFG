@@ -4,6 +4,7 @@ angular.module('medicoApp', [
   'ejerciciosTerapeuticos',
   'ngRoute',
   'perfilUsuario',
-  'gestionPacientes'
+  'gestionPacientes',
+  'gestionTerapias'
 ]);
 

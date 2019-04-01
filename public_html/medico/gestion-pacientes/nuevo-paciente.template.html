@@ -1,0 +1,124 @@
+<body class="bg-light">
+    <div class="row mx-auto mb-1">
+      <div class="col-md-6 mb-1 mt-3">
+
+        <div class="container mt-1">
+
+            <form name="registroForm" ng-submit="nuevoPaciente()">
+            <div class="row mx-auto mb-3 mt-1">
+
+              <div class="col-md-8 mb-3 mt-4 ">
+
+                <span><h3>
+                        <a
+                        href="#!principal"
+                        class="btn btn-circle btn-primary"
+                        >
+                        <i
+                        class="material-icons-new  outline-arrow_back  "
+                      ></i></a
+                      >   Añadir nuevo paciente</h3></span>
+              </div>
+            </div>
+            
+            <div class="row mx-auto">
+                    <div class="col-md-2 mb-1 "></div>
+                    <div class="col-md-8 mb-6 ">
+                      <fieldset class="form-group">
+                            <i
+                            class="material-icons-new outline-email  ml-2 "
+                          ></i>
+                        <label for="email" > Email</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="email"
+                          ng-model="paciente.correoElectronico"
+                          name="email"
+                          required
+                        />
+                        <div class="mensajeError" data-ng-show=' registroForm.email.$dirty && !registroForm.email.$valid '>
+                                Es necesario indicar un correo electrónico
+                                </small>
+                            </div>
+                   
+                    </div>
+          
+            
+                  </div>
+
+            <div class="row mx-auto">
+              <div class="col-md-2 mb-1 "></div>
+              <div class="col-md-4 mb-2 ">
+                <div class="form-group">
+                        <i
+                        class="material-icons-new outline-account_circle  ml-2 "
+                      ></i>
+                  <label for="nombre">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombre"
+                    ng-model="paciente.nombre"
+                    name = "nombre"
+                    required
+                    
+                  />
+                  <small class="mensajeError" data-ng-show=' registroForm.nombre.$dirty && !registroForm.nombre.$valid '>
+                          Es necesario indicar un nombre
+                  </small>
+                </div>
+              </div>
+      
+              <div class="col-md-4 mb-2 ">
+                <div class="form-group">
+                                            <i
+                        class="material-icons-new outline-account_circle  ml-2 "
+                      ></i>
+                  <label for="apellidos" >Apellidos</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="apellidos"
+                    ng-model="paciente.apellidos"
+                    name = "apellidos"
+                    required
+                  />
+      
+                  <small
+                    class="mensajeError"
+                    data-ng-show=" registroForm.apellidos.$dirty && !registroForm.apellidos.$valid "
+                  >
+                    Es necesario indicar unos apellidos
+                  </small>
+              </div>
+              </div>
+              <div class="col-md-2 mb-1 "></div>
+            </div>
+      
+
+      
+    
+      
+    
+            <div class="row mx-auto mb-3">
+              <div class="col-md-5 mb-2 "></div>
+              <div class="col-md-4 mb-2 ">
+                <input
+                  ng-disabled="registroForm.$invalid"
+                  ng-class="{'disableButton': registroForm.$invalid}"
+                  class="btn btn-outline-primary"
+                  type="submit"
+                  value="Crear usuario"
+                />
+              </div>
+      
+              <div class="col-md-4 mb-2 "></div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </body>
+  
