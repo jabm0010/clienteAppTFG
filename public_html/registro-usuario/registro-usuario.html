@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="registro">
+  <head>
+    <title>Registro</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- AngularJS 1.7.7 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular-route.js"></script>
+
+    <!-- Jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+      integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Módulo y componentes-->
+    <script src="registro-usuario.module.js"></script>
+    <script src="registro-usuario.component.js"></script>
+
+    <!--Roboto font-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos y bootstrap-->
+    <link type="text/css" rel="stylesheet" href="/public_html/app.css" />
+    <script src="/public_html/bootstrap/bootstrap-material-design-dist/js/bootstrap-material-design.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/public_html/bootstrap/bootstrap-material-design-dist/css/bootstrap-material-design.css"
+    />
+
+    <script src="/public_html/bootstrap/bootstrap-material-design-dist/js/bootstrap-material-design.js.map"></script>
+  </head>
+
+  <body>
+    <div
+      class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow"
+    >
+      <h5 class="my-0 mr-md-auto font-weight-normal"></h5>
+      <nav class="my-2 my-md-0 mr-md-3"></nav>
+      <a class="btn btn-outline-primary" href="#">Acceder a tu cuenta</a>
+    </div>
+
+    <gestion-registro></gestion-registro>
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top"></footer>
+  </body>
+</html>

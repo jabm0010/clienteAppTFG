@@ -1,0 +1,102 @@
+<body class="bg-light">
+    <div class="container" ng-init ="identificarToken()">
+     
+      <form name="registroForm" ng-submit="completarRegistro()">
+        <div class="row mx-auto mb-3">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-4 mb-3 mt-5 ">
+            <span><h3>Crea tu cuenta</h3></span>
+          </div>
+        </div>
+  
+      
+  
+        <div class="row mx-auto">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-8 mb-6 ">
+            <fieldset class="form-group">
+              <label for="email" >Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                ng-model="usuario.correoElectronico"
+                name="email"
+  
+                readonly
+              />
+
+          </div>
+        </div>
+  
+        <div class="row mx-auto">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-4 mb-3 ">
+            <div class="form-group">
+              <label for="contrasena" >Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                id="contrasena"
+                ng-model="usuario.clave"
+                name = "contrasena"
+                required
+              />
+              <small class="mensajeError" data-ng-show=' registroForm.contrasena.$dirty && !registroForm.contrasena.$valid '>
+                      Es necesario añadir una contraseña
+                      </small>
+                  </div>
+  
+          </div>
+  
+          <div class="col-md-4 mb-3 ">
+            <div class="form-group">
+              <label for="contrasena-repetir"  >Repita la contraseña</label>
+              
+              <input
+                type="password"
+                class="form-control"
+                id="contrasena-repetir"
+                ng-model="clave_verificar"
+                ng-pattern="usuario.clave"
+                name = "contrasena_verificar"
+                required
+              />
+              <small class="mensajeError" data-ng-show=' registroForm.contrasena_verificar.$dirty && !registroForm.contrasena_verificar.$valid '>
+                      Repita la contraseña
+                      </small>
+                  </div>
+          </div>
+          <div class="col-md-2 mb-1 "></div>
+        </div>
+  
+        <div class="row mx-auto">
+          <div class="col-md-2 mb-1 "></div>
+
+          <div class="col-md-5 mb-3 ">
+            
+             <label>Seleccione una imagen de perfil</label>
+            
+							<input  type="file" name="file" fileread = "usuario.imagen"  />
+         
+
+          </div>
+        </div>
+        <div class="row mx-auto mb-3">
+          <div class="col-md-5 mb-2 "></div>
+          <div class="col-md-4 mb-2 ">
+            <input
+              ng-disabled="registroForm.$invalid"
+              ng-class="{'disableButton': registroForm.$invalid}"
+              class="btn btn-outline-primary"
+              type="submit"
+              value="Registrarme"
+            />
+          </div>
+  
+          <div class="col-md-4 mb-2 "></div>
+        </div>
+      </form>
+    </div>
+  </body>
+  
