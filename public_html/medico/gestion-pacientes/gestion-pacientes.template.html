@@ -6,13 +6,18 @@
         <div class="row mx-auto mb-1">
           <div class="col-md-6 mb-1 mt-5 ">
             <div>
-              <input
-                class="form-control mr-sm-2"
-                type="text"
-                placeholder="Buscar"
-                aria-label="Buscar"
-                ng-model="$ctrl.query"
-              />
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="material-icons-new  outline-search  "></i>
+                </span>
+                <input
+                  class="form-control mr-sm-2"
+                  type="text"
+                  placeholder="Buscar"
+                  aria-label="Buscar"
+                  ng-model="$ctrl.query"
+                />
+              </div>
             </div>
           </div>
           <div class="col-md-1 mb-2 mt-5"></div>
@@ -59,16 +64,16 @@
                     <td></td>
                     <td>
                       <button
-                        ng-click="goToLink(p)"
-                        class="btn btn-raised btn-primary"
+                        ng-click="goToLink(p,'asignar-terapia')"
+                        class="btn btn-raised btn-success"
                       >
                         Asignar terapia
                       </button>
                     </td>
                     <td>
                       <button
-                        type="button"
-                        class="btn btn-sm btn-raised btn-secondary"
+                        ng-click="goToLink(p,'historial-medico')"
+                        class="btn  btn-raised btn-secondary"
                       >
                         Ver historial médico
                       </button>

@@ -25,6 +25,9 @@ angular.
     when('/asignar-terapia', {
       template: '<asignar-terapia></asignar-terapia>'
     }).
+    when('/historial-medico',{
+      template: '<historial-medico></historial-medico>'
+    }).
     otherwise('/ejercicios');
 
   })

@@ -3,23 +3,7 @@ angular.module("gestionTerapias").component("asignarTerapia", {
   controller: function crearTerapia($http, $scope, $window) {
     $scope.medico = "usuario1@gmail.com";
     $scope.paciente = $window.localStorage.getItem("pacienteSeleccionado");
-    $scope.terapia = {
-      ejerciciosTerapia: [
-        {
-          codigoEjercicio: "1",
-          duracionEjercicio: "5"
-        },
-        {
-          codigoEjercicio: "2",
-          duracionEjercicio: "8"
-        },
-        {
-          codigoEjercicio: "3",
-          duracionEjercicio: "10"
-        }
-      ],
-   
-    };
+    $scope.terapia = {};
 
     $scope.respuestaPeticion;
     $scope.mostrarTablaEjercicios = true;

@@ -1,15 +1,23 @@
 angular.module("gestionPacientes").component("verPacientes", {
   templateUrl: "gestion-pacientes/gestion-pacientes.template.html",
   controller: function verPacientes($http, $scope, $window, $location) {
-    $scope.medico = "usuario0@gmail.com";
+    $scope.medico = "usuario1@gmail.com";
     $scope.listadoPacientes;
 
-    $scope.goToLink = function(p) {
-      $window.localStorage.setItem("pacienteSeleccionado",p.correoElectronico);
-      $location.path("/asignar-terapia");
+    $scope.goToLink = function(p, path) {
+      $window.localStorage.setItem("pacienteSeleccionado", p.correoElectronico);
+      $window.localStorage.setItem("nombrePaciente", p.nombre);
+      $window.localStorage.setItem("apellidosPaciente", p.apellidos);
+      if (p.imagen == null) {
+        $window.localStorage.setItem(
+          "imagenPaciente",
+          "https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
+        );
+      } else {
+        $window.localStorage.setItem("imagenPaciente", p.imagen);
+      }
+      $location.path("/" + path);
     };
-
-
 
     $scope.obtenerPacientes = function() {
       $http({
@@ -26,7 +34,7 @@ angular.module("gestionPacientes").component("nuevoPaciente", {
   templateUrl: "gestion-pacientes/nuevo-paciente.template.html",
 
   controller: function anadirPaciente($http, $scope) {
-    $scope.medico = "usuario0@gmail.com";
+    $scope.medico = "usuario1@gmail.com";
     $scope.paciente;
     $scope.respuestaPeticion;
 
@@ -42,6 +50,65 @@ angular.module("gestionPacientes").component("nuevoPaciente", {
         function errorCallback(response) {
           $scope.respuestaPeticion = false;
         }
+      );
+    };
+  }
+});
+
+angular.module("gestionPacientes").component("historialMedico", {
+  templateUrl: "gestion-pacientes/historial-medico.template.html",
+
+  controller: function gestionarHistorialMedico($http, $scope, $window) {
+    $scope.medico = "usuario1@gmail.com";
+    $scope.paciente = $window.localStorage.getItem("pacienteSeleccionado");
+    $scope.nombre = $window.localStorage.getItem("nombrePaciente");
+    $scope.apellidos = $window.localStorage.getItem("apellidosPaciente");
+    $scope.imagen = $window.localStorage.getItem("imagenPaciente");
+    $scope.nuevoComentario;
+    $scope.historialMedico;
+    $scope.historialMedico2 = {};
+    $scope.modoNuevoComentario = false;
+
+    $scope.obtenerHistorialMedico = function() {
+      $http({
+        method: "GET",
+        url:
+          "http://localhost:8080/medicos/" +
+          $scope.medico +
+          "/historial/" +
+          $scope.paciente
+      }).then(function successBallback(response) {
+        $scope.historialMedico = response.data;
+        $scope.historialMedico = $scope.historialMedico.comentariosHistorial;
+
+        var historialOrdenado = {};
+        var keys = Object.keys($scope.historialMedico);
+        keys.sort();
+        keys.reverse();
+        for (var i = 0; i < keys.length; i++) {
+          var clave = keys[i];
+          historialOrdenado[clave] = $scope.historialMedico[clave];
+        }
+        $scope.historialMedico = historialOrdenado;
+      });
+    };
+
+    $scope.enviarComentario = function() {
+      $http({
+        method: "POST",
+        url:
+          "http://localhost:8080/medicos/" +
+          $scope.medico +
+          "/historial/" +
+          $scope.paciente,
+        data: $scope.nuevoComentario
+      }).then(
+        function successBallback(response) {
+          $scope.modoNuevoComentario = false;
+          $scope.obtenerHistorialMedico();
+        },
+
+        function errorBallback(response) {}
       );
     };
   }

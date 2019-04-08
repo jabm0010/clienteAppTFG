@@ -1,0 +1,100 @@
+<div class="div-terapia mt-5  ">
+  <div ng-init="obtenerHistorialMedico()"></div>
+  <div class="container-fluid">
+    <div class="row mx-auto mb-1 mt-3">
+      <div class="col-md-3 lg-3 mt-5 mb-5">
+        <div class="card " style="width: 18rem;">
+          <img
+            class="card-img-top"
+            src="{{ imagen }}"
+            style="border-radius: 50%;"
+            alt="Imagen perfil paciente"
+          />
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <h5>{{ paciente }}</h5>
+              </li>
+              <div class="dropdown-divider"></div>
+              <li class="list-group-item">
+                <h5>{{ nombre }} {{ apellidos }}</h5>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      
+      <div class="col-md-5 lg-5 mt-5 mb-5">
+        <div class="row mx-auto ">
+          <div class="col-md-7 lg-7 ">
+            <h2>Historial médico</h2>
+          </div>
+          <div class="col-md-1 lg-3"></div>
+          <div class="col-md-3 lg-3">
+            <a
+              class="btn btn-circle btn-raised btn-primary"
+              ng-click="modoNuevoComentario=true"
+              >Nuevo comentario
+
+              <i
+                class="material-icons-new outline-add_circle icon-white  ml-2 "
+              ></i
+            ></a>
+          </div>
+        </div>
+        <div class="row mx-auto" ng-show="modoNuevoComentario == true">
+          <a
+            class="btn btn-circle btn-primary"
+            ng-click="modoNuevoComentario=false"
+          >
+            <i class="material-icons-new  outline-arrow_back  "></i
+          ></a>
+
+          <textarea
+            class="form-control"
+            id="nuevoComentario"
+            type="text"
+            ,
+            name="nuevoComentario"
+            ,
+            ng-model="nuevoComentario"
+            rows="4"
+            required
+          ></textarea>
+
+          <div class="row mx-auto mt-3">
+            <input
+              ng-disabled="modificarHistorialMedico.$invalid"
+              ng-class="{'disableButton': modificarHistorialMedico.$invalid}"
+              class="btn btn-primary btn-outline"
+              type="button"
+              ng-click="enviarComentario()"
+              value="Añadir comentario"
+            />
+          </div>
+        </div>
+        <div class="row mx-auto mb-1 mt-3">
+          <div class="list-group">
+            <div
+              class="table-wrapper-scroll-y my-custom-scrollbar "
+              id="style-1"
+            >
+              <div ng-repeat="(key,value) in historialMedico">
+                <div class="list-group-item column align-items-start bg-light">
+                  <div class="d-flex w-100 justify-content-between ">
+                    <h5 class="mb-1">
+                      {{ value }}
+                    </h5>
+                  </div>
+                  <small> {{ key | date: "dd-MM-yyyy h:mm a" }} </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

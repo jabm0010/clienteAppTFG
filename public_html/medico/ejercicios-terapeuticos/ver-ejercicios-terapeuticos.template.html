@@ -5,16 +5,21 @@
     <div class="row mx-auto mb-1">
       <div class="col-md-2 mb-2  mt-3 "></div>
       <div class="col-md-4 mb-2  mt-3">
-        <input
-          class="form-control mr-sm-2"
-          type="text"
-          placeholder="Buscar"
-          aria-label="Buscar"
-          ng-model="$ctrl.query"
-        />
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="material-icons-new  outline-search  "></i>
+          </span>
+          <input
+            class="form-control mr-sm-2"
+            type="text"
+            placeholder="Buscar"
+            aria-label="Buscar"
+            ng-model="$ctrl.query"
+          />
+        </div>
       </div>
       <div class="col-md-1 mb-2  mt-3"></div>
-      
+
       <div class="col-md-2 mb-2  mt-3">
         <div class="custom-control custom-radio">
           <input
@@ -24,7 +29,7 @@
             class="custom-control-input"
             value="titulo"
             ng-model="filtro"
-            ng-change = "ordenarPorTitulo()"
+            ng-change="ordenarPorTitulo()"
           />
           <label class="custom-control-label" for="titulo">Título</label>
         </div>
@@ -38,10 +43,11 @@
             class="custom-control-input"
             value="fechaCreacion"
             ng-model="filtro"
-            ng-change = "ordenarPorFecha()"
-            
+            ng-change="ordenarPorFecha()"
           />
-          <label class="custom-control-label  " for="fechaCreacion">Fecha creación</label>
+          <label class="custom-control-label  " for="fechaCreacion"
+            >Fecha creación</label
+          >
         </div>
       </div>
     </div>
@@ -64,7 +70,6 @@
               <td>{{ e.descripcion }}</td>
               <td>
                 {{
-              
                   e.fechaCreacion.substring(0, 10) +
                     " | " +
                     e.fechaCreacion.substring(11, 16)
