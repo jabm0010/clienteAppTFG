@@ -3,6 +3,7 @@ angular.module("gestionPacientes").component("verPacientes", {
   controller: function verPacientes($http, $scope, $window, $location) {
     $scope.medico = "usuario1@gmail.com";
     $scope.listadoPacientes;
+  
 
     $scope.goToLink = function(p, path) {
       $window.localStorage.setItem("pacienteSeleccionado", p.correoElectronico);
@@ -66,8 +67,14 @@ angular.module("gestionPacientes").component("historialMedico", {
     $scope.imagen = $window.localStorage.getItem("imagenPaciente");
     $scope.nuevoComentario;
     $scope.historialMedico;
-    $scope.historialMedico2 = {};
     $scope.modoNuevoComentario = false;
+    $scope.listaTerapias;
+
+
+    $scope.init = function (){
+      $scope.obtenerHistorialMedico();
+      $scope.obtenerTerapias();
+    }
 
     $scope.obtenerHistorialMedico = function() {
       $http({
@@ -111,5 +118,45 @@ angular.module("gestionPacientes").component("historialMedico", {
         function errorBallback(response) {}
       );
     };
+
+    $scope.obtenerTerapias = function(){
+      $http({
+        method: "GET",
+        url:
+          "http://localhost:8080/medicos/" +
+          $scope.medico +
+          "/terapias/" +
+          $scope.paciente,
+
+      }).then(
+        function successBallback(response) {
+          $scope.listaTerapias = response.data;
+        },
+
+        function errorBallback(response) {}
+      );
+    }
+
+    $scope.terapiaActual = function(terapia){
+
+      var fechas = $scope.ordenarFechas(terapia);
+      var ahora = new Date();
+      ahora.toLocaleString();
+      var ultimaFecha = new Date(fechas[0]);
+      ultimaFecha.toLocaleString();
+      if(ultimaFecha > ahora){
+        return true;
+      }
+      return false;
+    }
+
+    $scope.ordenarFechas = function(terapia){
+      var fechas = terapia.fechas;
+      fechas.sort();
+      fechas.reverse();
+      return fechas;
+    }
   }
+
+
 });
