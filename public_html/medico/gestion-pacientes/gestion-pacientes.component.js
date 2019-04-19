@@ -1,7 +1,7 @@
 angular.module("gestionPacientes").component("verPacientes", {
   templateUrl: "gestion-pacientes/gestion-pacientes.template.html",
-  controller: function verPacientes($http, $scope, $window, $location) {
-    $scope.medico = "usuario1@gmail.com";
+  controller: function verPacientes($http, $scope, $window, $location, $rootScope) {
+
     $scope.listadoPacientes;
   
 
@@ -23,7 +23,7 @@ angular.module("gestionPacientes").component("verPacientes", {
     $scope.obtenerPacientes = function() {
       $http({
         method: "GET",
-        url: "http://localhost:8080/medicos/" + $scope.medico + "/pacientes"
+        url: "http://localhost:8080/medicos/" + $rootScope.usuarioURL + "/pacientes"
       }).then(function(success) {
         $scope.listadoPacientes = success.data;
       });
@@ -34,15 +34,15 @@ angular.module("gestionPacientes").component("verPacientes", {
 angular.module("gestionPacientes").component("nuevoPaciente", {
   templateUrl: "gestion-pacientes/nuevo-paciente.template.html",
 
-  controller: function anadirPaciente($http, $scope) {
-    $scope.medico = "usuario1@gmail.com";
+  controller: function anadirPaciente($http, $scope, $rootScope) {
+  
     $scope.paciente;
     $scope.respuestaPeticion;
 
     $scope.nuevoPaciente = function() {
       $http({
         method: "POST",
-        url: "http://localhost:8080/medicos/" + $scope.medico + "/pacientes",
+        url: "http://localhost:8080/medicos/" + $rootScope.usuarioURL + "/pacientes",
         data: $scope.paciente
       }).then(
         function successCallback(response) {
@@ -59,8 +59,8 @@ angular.module("gestionPacientes").component("nuevoPaciente", {
 angular.module("gestionPacientes").component("historialMedico", {
   templateUrl: "gestion-pacientes/historial-medico.template.html",
 
-  controller: function gestionarHistorialMedico($http, $scope, $window) {
-    $scope.medico = "usuario1@gmail.com";
+  controller: function gestionarHistorialMedico($http, $scope, $window, $rootScope) {
+
     $scope.paciente = $window.localStorage.getItem("pacienteSeleccionado");
     $scope.nombre = $window.localStorage.getItem("nombrePaciente");
     $scope.apellidos = $window.localStorage.getItem("apellidosPaciente");
@@ -81,7 +81,7 @@ angular.module("gestionPacientes").component("historialMedico", {
         method: "GET",
         url:
           "http://localhost:8080/medicos/" +
-          $scope.medico +
+          $rootScope.usuarioURL +
           "/historial/" +
           $scope.paciente
       }).then(function successBallback(response) {
@@ -105,13 +105,14 @@ angular.module("gestionPacientes").component("historialMedico", {
         method: "POST",
         url:
           "http://localhost:8080/medicos/" +
-          $scope.medico +
+          $rootScope.usuarioURL +
           "/historial/" +
           $scope.paciente,
         data: $scope.nuevoComentario
       }).then(
         function successBallback(response) {
           $scope.modoNuevoComentario = false;
+          $scope.nuevoComentario = "";
           $scope.obtenerHistorialMedico();
         },
 
@@ -124,7 +125,7 @@ angular.module("gestionPacientes").component("historialMedico", {
         method: "GET",
         url:
           "http://localhost:8080/medicos/" +
-          $scope.medico +
+          $rootScope.usuarioURL +
           "/terapias/" +
           $scope.paciente,
 

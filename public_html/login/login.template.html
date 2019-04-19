@@ -1,0 +1,88 @@
+<body class="bg-light">
+    <div class="container" >
+     
+      <form name="loginForm" ng-submit="identificarUsuario()">
+        <div class="row mx-auto mb-3">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-4 mb-3 mt-5 ">
+            <span><h3>Identificate </h3></span>
+          </div>
+        </div>
+  
+      
+  
+        <div class="row mx-auto">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-8 mb-6 ">
+            <fieldset class="form-group">
+              <label for="email" >Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                ng-model="usuario.correoElectronico"
+                name="email"
+                required
+              />
+              <small class="mensajeError" data-ng-show=' loginForm.email.$dirty && !loginForm.email.$valid '>
+                Es necesario añadir una contraseña
+                </small>
+            </div>
+          </div>
+        
+  
+        <div class="row mx-auto">
+          <div class="col-md-2 mb-1 "></div>
+          <div class="col-md-8 mb-3 ">
+            <div class="form-group">
+              <label for="contrasena" >Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                id="contrasena"
+                ng-model="usuario.clave"
+                name = "contrasena"
+                required
+              />
+              <small class="mensajeError" data-ng-show=' loginForm.contrasena.$dirty && !loginForm.contrasena.$valid '>
+                      Es necesario añadir una contraseña
+                      </small>
+                  </div>
+  
+          </div>
+  
+
+        </div>
+  
+
+        <div class="row mx-auto mb-3">
+          <div class="col-md-5 mb-2 "></div>
+          <div class="col-md-4 mb-2 ">
+            <input
+              ng-disabled="loginForm.$invalid"
+              ng-class="{'disableButton': loginForm.$invalid}"
+              class="btn btn-outline-primary"
+              type="submit"
+              value="Iniciar sesión"
+            />
+          </div>
+  
+          <div class="col-md-4 mb-2 "></div>
+        </div>
+        
+      </form>
+
+      <div class="row mx-auto mb-3">
+            <div class="col-md-4 mb-2 "></div>
+            <div class="col-md-4 mb-2 ">
+           <div class="alert alert-info" ng-show="respuestaPeticion == false"  role="alert">
+               Los datos introducidos no son correctos
+             </div>
+           </div>
+         <div class="col-md-4 mb-2 "></div>
+    
+      </div> 
+    </div>
+
+  </body>
+  

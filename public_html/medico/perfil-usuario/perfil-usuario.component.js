@@ -1,12 +1,12 @@
 angular.module("perfilUsuario").component("perfilUsuario", {
     templateUrl: "perfil-usuario/perfil-usuario.template.html",
-    controller: function obtenerPerfilUsuario($http, $scope) {
-      $scope.idUsuario = "usuario0@gmail.com"
+    controller: function obtenerPerfilUsuario($http, $scope, $rootScope) {
+
       $scope.informacionUsuario;
       $scope.obtenerPerfilUsuario = function() {
         $http({
           method: "GET",
-          url: "http://localhost:8080/medicos/"+$scope.idUsuario
+          url: "http://localhost:8080/medicos/"+$rootScope.usuarioURL
 
         }).then(function(success) {
           $scope.informacionUsuario = success.data;

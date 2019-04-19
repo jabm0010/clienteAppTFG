@@ -1,14 +1,15 @@
 angular.module("ejerciciosTerapeuticos").component("ejerciciosTerapeuticos", {
   templateUrl: "ejercicios-terapeuticos/ejercicios-terapeuticos.template.html",
-  controller: function GestionarEjercicios($http, $scope) {
+  controller: function GestionarEjercicios($http, $scope, $rootScope) {
     $scope.respuestaPeticion;
     $scope.ejercicio;
-    $scope.medico = "usuario1@gmail.com";
+
     $scope.crearEjercicio = function() {
       $http({
         method: "POST",
-        url: "http://localhost:8080/medicos/"+$scope.medico+"/ejercicios",
-        data: $scope.ejercicio
+        url: "http://localhost:8080/medicos/"+$rootScope.usuarioURL+"/ejercicios",
+        data: $scope.ejercicio,
+
       }).then(function successCallback(response) {
         $scope.respuestaPeticion = true;
       }, function errorCallback(response){
@@ -26,10 +27,10 @@ angular.module("ejerciciosTerapeuticos").component("ejerciciosTerapeuticos", {
 
 angular.module("ejerciciosTerapeuticos").component("verEjerciciosTerapeuticos",{
   templateUrl:"ejercicios-terapeuticos/ver-ejercicios-terapeuticos.template.html",
-  controller: function VerEjercicios($http, $scope,$window, $location){
+  controller: function VerEjercicios($http, $scope,$window, $location, $rootScope){
 
     $scope.ejercicios;
-    $scope.medico = "usuario1@gmail.com";
+  
 
 
     $scope.goToLink = function(e) {
@@ -61,8 +62,8 @@ angular.module("ejerciciosTerapeuticos").component("verEjerciciosTerapeuticos",{
     $scope.verEjercicios = function(){
       $http({
         method: "GET",
-        url: "http://localhost:8080/medicos/"+$scope.medico+"/ejercicios",
-
+        url: "http://localhost:8080/medicos/"+$rootScope.usuarioURL+"/ejercicios",
+  
       }).then(function(success) {
         $scope.ejercicios = success.data;
         $scope.ejercicios.sort($scope.sort_by('fechaCreacion', true, null));
@@ -77,13 +78,13 @@ angular.module("ejerciciosTerapeuticos").component("verEjerciciosTerapeuticos",{
 
 angular.module("ejerciciosTerapeuticos").component("detallesEjercicio",{
   templateUrl:"ejercicios-terapeuticos/detalles-ejercicio.template.html",
-  controller: function ModificarEjercicio($routeParams,$http,$window, $scope){
+  controller: function ModificarEjercicio($routeParams,$http,$window, $scope, $rootScope){
     $scope.ejercicio = JSON.parse($window.localStorage.getItem("ejercicioSeleccionado"));
     $scope.modoeditar = false;
     $scope.respuestaPeticion;
     
     $scope.id = $routeParams.ejercicioId;
-    $scope.medico = "usuario1@gmail.com";
+
 
     $scope.activarModoEditar = function(){
       $scope.modoeditar = $scope.modoeditar === false ? $scope.modoeditar = true : $scope.modoeditar = false;
@@ -93,8 +94,9 @@ angular.module("ejerciciosTerapeuticos").component("detallesEjercicio",{
     $scope.guardarCambios = function(){
       $http({
         method: "PUT",
-        url: "http://localhost:8080/medicos/"+$scope.medico+"/ejercicios",
-        data: $scope.ejercicio
+        url: "http://localhost:8080/medicos/"+$rootScope.usuarioURL+"/ejercicios",
+        data: $scope.ejercicio,
+
 
       }).then(function successCallback(response) {
         $scope.respuestaPeticion = true;

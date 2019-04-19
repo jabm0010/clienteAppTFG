@@ -1,7 +1,7 @@
 angular.module("gestionTerapias").component("asignarTerapia", {
   templateUrl: "gestion-terapias/gestion-terapias.template.html",
-  controller: function crearTerapia($http, $scope, $window) {
-    $scope.medico = "usuario1@gmail.com";
+  controller: function crearTerapia($http, $scope, $window, $rootScope) {
+
     $scope.paciente = $window.localStorage.getItem("pacienteSeleccionado");
     $scope.terapia = {};
 
@@ -32,7 +32,7 @@ angular.module("gestionTerapias").component("asignarTerapia", {
         method: "POST",
         url:
           "http://localhost:8080/medicos/" +
-          $scope.medico +
+          $rootScope.usuarioURL +
           "/terapias/" +
           $scope.paciente,
         data: $scope.terapia
@@ -49,7 +49,7 @@ angular.module("gestionTerapias").component("asignarTerapia", {
     $scope.verEjercicios = function() {
       $http({
         method: "GET",
-        url: "http://localhost:8080/medicos/" + $scope.medico + "/ejercicios"
+        url: "http://localhost:8080/medicos/" + $rootScope.usuarioURL + "/ejercicios"
       }).then(function(success) {
         $scope.ejercicios = success.data;
         $scope.ejercicios.sort($scope.sort_by("fechaCreacion", true, null));
