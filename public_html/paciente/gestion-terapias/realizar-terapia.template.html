@@ -1,0 +1,141 @@
+<div class="div-terapia mt-5  ">
+  <div class="container-fluid" ng-init="init()">
+    <div class="row mx-auto mb-2 mt-3">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="#!principal"
+            ><i class="material-icons-new  outline-arrow_back  "></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="row mx-auto mb-1 mt-1">
+      <div class="col-md-1 lg-1 mt-2 mb-1"></div>
+
+      <div class="col-md-8 lg-5 mt-2 mb-5">
+        <div id="accordion">
+          <div ng-repeat="e in terapia.ejerciciosTerapia">
+            <div class="card mt-1">
+              <div class="card-header" id="{{ $index }}">
+                <h6 class="mb-0">
+                  {{ e.tituloEjercicio }}
+
+                  <button
+                    class="btn btn-link"
+                    data-toggle="collapse"
+                    data-target="#collapse-{{ $index }}"
+                    aria-expanded="false"
+                    aria-controls="collapse-{{ $index }}"
+                    ng-click="verEjercicio(e)"
+                  >
+                    <i
+                      class="material-icons-new  outline-arrow_drop_down_circle
+                          "
+                    ></i>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-raised"
+                    ng-click="cambiarContador(e.duracionEjercicio)"
+                    data-toggle="modal"
+                    data-target="#contadorTiempo"
+                  >
+                    Iniciar ejercicio
+                  </button>
+                </h6>
+              </div>
+              <div
+                id="collapse-{{ $index }}"
+                class="collapse bg-light"
+                aria-labelledby="{{ index }}"
+                data-parent="#accordion"
+              >
+                <div class="card-body bg-light ">
+                  {{ infoEjercicio.descripcion }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mx-auto mb-1 mt-1">
+      <div class="col-md-1 lg-1 mt-2 mb-1"></div>
+      <div class="col-md-8 lg-5 mt-2 mb-5">
+        <button
+          type="button"
+          class="btn btn-primary btn-raised"
+          ng-click="realizarSesion()"
+        >
+          Confirmar sesión
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="contadorTiempo"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="contadorTiempoTitulo"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tituloContador">Contador ejercicio</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          ng-click="pararContador()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md"></div>
+          <div class="col-md">
+            <h1>
+              <span class="badge badge-secondary badge-lg">{{
+                contador | counter | date: "mm:ss"
+              }}</span>
+            </h1>
+          </div>
+          <div class="col-md"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="btn-group" role="group" aria-label="controladoresContador">
+          <button
+            type="button"
+            ng-click="iniciarContador()"
+            class="btn btn-primary "
+          >
+            Comenzar
+          </button>
+          <button
+            type="button"
+            ng-click="reiniciarContador()"
+            class="btn btn-warning "
+          >
+            Reiniciar
+          </button>
+          <button
+            type="button"
+            ng-click="pararContador()"
+            class="btn btn-secondary "
+          >
+            Parar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

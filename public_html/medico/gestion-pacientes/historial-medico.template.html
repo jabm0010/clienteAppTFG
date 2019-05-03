@@ -103,21 +103,41 @@
       </div>
       <div class="col-md-4 lg-4 mt-1 mb-5">
         <h2>Terapias</h2>
-    
+
         <div class="list-group">
           <div class="table-wrapper-scroll-y my-custom-scrollbar " id="style-1">
-            <div ng-repeat="t in listaTerapias" >
-              <div class="list-group-item column align-items-start mt-1 active" ng-if="terapiaActual(t)">
-                Terapia {{$index+1}} </br>
-                Creada el día {{ t.fechaCreacion | date: "dd-MM-yyyy " }}
-                
+            <div ng-repeat="t in listaTerapias">
+              <div
+                class="list-group-item column  bg-light mt-1 "
+                ng-click="goToLink(t)"
+              >
+                <div class="row  ">
+                  <div class="col-md-5 justify-content-start ">
+                    Terapia {{ $index + 1 }}
+                    <span
+                      class="badge badge-pill badge-secondary"
+                      ng-if="terapiaActual(t)"
+                      >Activa</span
+                    >
+                    <div class="row ">
+                        <div class="col small ">
+                            Fecha de creación {{ t.fechaCreacion | date: "dd-MM-yyyy " }}
+      
+                          </div>
+                    </div>
+                  </div>
+                  <div class="col ">
+                      <input
+                        class="btn btn-primary btn-raised"
+                        type="button"
+                        ng-click="goToLink(t)"
+                        value="Ver información"
+                      />
+                    </div>
+              
+                </div>
 
               </div>
-              <div class="list-group-item column align-items-start bg-light mt-1 " ng-if="!terapiaActual(t)">
-                    Terapia {{$index+1}} </br>
-                    Creada el día {{ t.fechaCreacion | date: "dd-MM-yyyy " }}
-    
-                  </div>
             </div>
           </div>
         </div>

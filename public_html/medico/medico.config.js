@@ -28,7 +28,16 @@ angular.
     when('/historial-medico',{
       template: '<historial-medico></historial-medico>'
     }).
-    otherwise('/ejercicios');
+    when('/terapias/:terapiaId',{
+      template: '<ver-terapia></ver-terapia>'
+    }).
+    when('/terapias/:terapiaId/ejercicios',{
+      template: '<ver-ejercicios-terapia></ver-ejercicios-terapia>'
+    }).
+    when('/terapias/:terapiaId/chat',{
+      template: '<ver-chat-terapia></ver-chat-terapia>'
+    }).
+    otherwise('/principal');
 
   })
 

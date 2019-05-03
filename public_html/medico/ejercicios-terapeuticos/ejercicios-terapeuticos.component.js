@@ -65,7 +65,7 @@ angular.module("ejerciciosTerapeuticos").component("verEjerciciosTerapeuticos",{
         url: "http://localhost:8080/medicos/"+$rootScope.usuarioURL+"/ejercicios",
   
       }).then(function(success) {
-        $scope.ejercicios = success.data;
+        $scope.ejercicios = success.data.contenidos;
         $scope.ejercicios.sort($scope.sort_by('fechaCreacion', true, null));
         
       });

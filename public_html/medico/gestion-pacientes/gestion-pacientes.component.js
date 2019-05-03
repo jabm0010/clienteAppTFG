@@ -59,7 +59,7 @@ angular.module("gestionPacientes").component("nuevoPaciente", {
 angular.module("gestionPacientes").component("historialMedico", {
   templateUrl: "gestion-pacientes/historial-medico.template.html",
 
-  controller: function gestionarHistorialMedico($http, $scope, $window, $rootScope) {
+  controller: function gestionarHistorialMedico($http, $scope, $window, $rootScope,$location) {
 
     $scope.paciente = $window.localStorage.getItem("pacienteSeleccionado");
     $scope.nombre = $window.localStorage.getItem("nombrePaciente");
@@ -157,6 +157,12 @@ angular.module("gestionPacientes").component("historialMedico", {
       fechas.reverse();
       return fechas;
     }
+
+    $scope.goToLink = function(t) {
+      $window.localStorage.setItem("terapiaSeleccionada",JSON.stringify(t)) 
+      $location.path("/terapias/"+t.id);
+    };
+ 
   }
 
 

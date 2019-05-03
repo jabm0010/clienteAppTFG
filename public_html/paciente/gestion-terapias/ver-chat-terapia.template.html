@@ -1,0 +1,96 @@
+<div class="div-terapia mt-5  ">
+    <div class="container-fluid" ng-init="init()">
+      <div class="row mx-auto mb-2 mt-3">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" href="#!principal"
+              ><i class="material-icons-new  outline-arrow_back  "></i
+            ></a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link " ng-href="#!terapias/{{ terapia.idTerapia }}"
+              >Calendario</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              ng-href="#!terapias/{{ terapia.idTerapia }}/ejercicios"
+              >Ejercicios</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              ng-href="#!terapias/{{ terapia.idTerapia }}/chat"
+              >Chat</a
+            >
+          </li>
+        </ul>
+      </div>
+  
+      <div class="row mx-auto mb-1 mt-1">
+        <div class="col-md-1 lg-1 mt-2 mb-1"></div>
+        <div class="col-md-4 lg-4 mt-2 mb-1">
+          <h3> Nuevo mensaje <i class="material-icons-new  outline-library_add  "></i
+            ></h3>
+
+          <form name="formMensaje" ng-submit="nuevoMensajeChat()">
+            <textarea
+              class="form-control"
+              id="nuevoMensaje"
+              type="text"
+              ,
+              name="nuevoMensaje"
+              ,
+              ng-model="nuevoMensaje.contenido"
+              rows="4"
+              required
+            ></textarea>
+            <div class="row mx-auto mt-3">
+              <input
+                ng-disabled="formMensaje.$invalid"
+                ng-class="{'disableButton': formMensaje.$invalid}"
+                class="btn btn-primary btn-outline"
+                type="submit"
+                value="Nuevo mensaje"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="col-md-5 lg-5 mt-2 mb-1">
+            <h3> Mensajes <i class="material-icons-new  outline-library_books  "></i
+              ></h3>
+          <div class="list-group">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar-chat " id="style-1">
+              <div ng-repeat="m in chat">
+                <div class=" mb-2">
+                  <div class="card ">
+                    <div class="card-header  bg-light ">
+                     
+                      <img
+                        src="{{ m.imagenAutor }}"
+                        width="30px"
+                        height="30px"
+                        style="border-radius: 50%;"
+                      />
+                      {{ m.nombreAutor }}
+                      
+                      
+                     
+                    </div>
+                    <div class="card-body bg-light">
+                      <p class="card-text">{{ m.contenido }}</p>
+                      <div class="text-right">{{ m.fechaActualizacion }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

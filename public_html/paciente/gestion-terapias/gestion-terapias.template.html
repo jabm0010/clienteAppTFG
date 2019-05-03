@@ -1,0 +1,70 @@
+<div class="div-terapia mt-5  ">
+  <div class="container-fluid" ng-init="init()">
+    <div class="row mx-auto mb-2 ">
+      <div class="col-md-4 lg-4 mt-5 mb-5">
+        <div ng-repeat="t in listaTerapias">
+          <div class="card ">
+            <div class="card-header">
+              Terapia {{ $index + 1 }}
+              <span
+                class="badge badge-primary"
+                ng-show="{{ t.terapiaHoy == 'true' }}"
+                >Hoy</span
+              >
+              <span
+                class="badge badge-success"
+                ng-show="{{ t.terapiaHoy == 'realizada' }}"
+                >Realizada</span
+              >
+              <p class="card-text">
+                <small class="text-muted"
+                  >Creada el día {{ t.fechaCreacion }} por {{ t.medicoNombre }}
+                  {{ t.medicoApellidos }}
+                </small>
+              </p>
+            </div>
+            <div class="card-body">
+              <h6>
+                Ejercicios de la terapia:
+                <span
+                  class="badge badge-pill badge-light"
+                  ng-repeat="e in t.ejerciciosTerapia"
+                >
+                  {{ e.tituloEjercicio }}
+                </span>
+              </h6>
+
+              <h6>
+                Fechas de realización:
+                <span
+                  class="badge badge-pill badge-light"
+                  ng-repeat="f in t.fechasFormato"
+                >
+                  {{ f }}
+                </span>
+              </h6>
+            </div>
+            <div class="card-footer flex ">
+              <input
+                class="btn btn-primary btn-outline btn-sm"
+                type="button"
+                ng-click="goToLink(t)"
+                value="Ver información"
+              />
+
+              <a
+                class="btn btn-secondary btn-outline btn-sm"
+                
+                ng-show="{{ t.terapiaHoy == 'true' }}"
+                ng-href="#!terapias/{{ t.idTerapia }}/realizar"
+                value="Realizar sesión "
+              >
+                Realizar sesión
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,13 +16,17 @@ angular.module("login").component("gestionLogin", {
       $scope.usuario.clave = btoa($scope.usuario.clave);
       $http({
         method: "POST",
-        url: "http://localhost:8080/usuarios",
+        url: "http://localhost:8080/login/usuarios",
         data: $scope.usuario
       }).then(
         function successCallback(response) {
           $scope.crearSesion();
           if (response.data.rol == "MEDICO") {
             $window.location.href = "../medico/medico.html#!/principal";
+          }
+          if(response.data.rol == "PACIENTE"){
+            $window.location.href = "../paciente/paciente.html#!/principal";
+
           }
         },
         function errorCallback(response) {
